@@ -7,9 +7,10 @@ import { MigrationList } from 'components/react-admin/migrations';
 import PostIcon from '@mui/icons-material/Book';
 import UserIcon from '@mui/icons-material/Group';
 import MigrationIcon from '@mui/icons-material/Storage';
+
 import { AdminLayout } from 'components/react-admin/adminLayout';
 
-const dataProvider = jsonServerProvider(' http://webest.test/api/records');
+const dataProvider = jsonServerProvider('http://encuentro.test/api/records');
 
 const RAdmin = () => (
   <Admin
