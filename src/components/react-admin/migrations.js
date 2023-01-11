@@ -1,6 +1,6 @@
-// in src/components/react-admin/migrations.tsx
+// in src/components/react-admin/migrations.js
 import { useMediaQuery } from '@mui/material';
-import { List, SimpleList, Datagrid, TextField} from 'react-admin';
+import { List, SimpleList, Datagrid, TextField } from 'react-admin';
 
 export const MigrationList = () => {
   const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'));

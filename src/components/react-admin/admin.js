@@ -18,9 +18,9 @@ const RAdmin = () => (
     dataProvider={dataProvider}
     layout={AdminLayout}
   >
+    <Resource name="migrations" list={MigrationList} icon={MigrationIcon} recordRepresentation="migration" />
     <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
     <Resource name="users" list={UserList} icon={UserIcon} recordRepresentation="name" />
-    <Resource name="migrations" list={MigrationList} icon={MigrationIcon} recordRepresentation="migration" />
   </Admin>
 )
 
