@@ -1,16 +1,32 @@
 import { Admin, Resource } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
-import { UserList } from 'components/react-admin/users';
-import { PostList, PostEdit, PostCreate } from 'components/react-admin/posts';
-import { MigrationList } from 'components/react-admin/migrations';
 
-import PostIcon from '@mui/icons-material/Book';
+/*Para php-crud-api
+import jsonServerProvider from 'ra-data-json-server';
+*/
+
+/*Para Laravel Controllers*/
+import jsonapiClient from 'ra-jsonapi-client';
+
+import { UserList } from 'components/react-admin/users';
+import { CustomerList, CustomerEdit, CustomerCreate } from 'components/react-admin/customers';
+
+//TODO eliminar las dos líneas siguientes
+import { PostList, PostEdit, PostCreate } from 'components/react-admin/posts';
+import { MigrationList, MigrationEdit, MigrationCreate } from 'components/react-admin/migrations';
+
 import UserIcon from '@mui/icons-material/Group';
+import CustomerIcon from '@mui/icons-material/SupportAgent';
+import PostIcon from '@mui/icons-material/Book';
 import MigrationIcon from '@mui/icons-material/Storage';
 
 import { AdminLayout } from 'components/react-admin/adminLayout';
 
+/*Para php-crud-api
 const dataProvider = jsonServerProvider('http://encuentro.test/api/records');
+*/
+
+/*Para Laravel Controllers*/
+const dataProvider = jsonapiClient('http://encuentro.test/api');
 
 const RAdmin = () => (
   <Admin
@@ -18,7 +34,15 @@ const RAdmin = () => (
     dataProvider={dataProvider}
     layout={AdminLayout}
   >
-    <Resource name="migrations" list={MigrationList} icon={MigrationIcon} recordRepresentation="migration" />
+
+    <Resource name="customers" 
+    list={CustomerList} 
+    icon={CustomerIcon} 
+    edit={CustomerEdit} 
+    create={CustomerCreate} />
+
+    <Resource name="migrations"
+      list={MigrationList} icon={MigrationIcon} edit={MigrationEdit} create={MigrationCreate}/>
     <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
     <Resource name="users" list={UserList} icon={UserIcon} recordRepresentation="name" />
   </Admin>
