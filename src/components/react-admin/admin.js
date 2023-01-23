@@ -1,31 +1,32 @@
 import { Admin, Resource } from 'react-admin';
 
-/*Para php-crud-api
-import jsonServerProvider from 'ra-data-json-server';
-*/
-
-/*Para Laravel Controllers*/
-import jsonapiClient from 'ra-jsonapi-client';
-
 import { UserList } from 'components/react-admin/users';
 import { CustomerList, CustomerEdit, CustomerCreate } from 'components/react-admin/customers';
 
-//TODO eliminar las dos líneas siguientes
+//TODO eliminar las dos lineas siguientes
 import { PostList, PostEdit, PostCreate } from 'components/react-admin/posts';
 import { MigrationList, MigrationEdit, MigrationCreate } from 'components/react-admin/migrations';
 
-import UserIcon from '@mui/icons-material/Group';
 import CustomerIcon from '@mui/icons-material/SupportAgent';
+import UserIcon from '@mui/icons-material/Group';
+
 import PostIcon from '@mui/icons-material/Book';
 import MigrationIcon from '@mui/icons-material/Storage';
 
 import { AdminLayout } from 'components/react-admin/adminLayout';
 
-/*Para php-crud-api
-const dataProvider = jsonServerProvider('http://encuentro.test/api/records');
-*/
 
-/*Para Laravel Controllers*/
+// para laravel Controllers
+ import jsonapiClient from 'ra-jsonapi-client';
+
+// para php-crud-api
+//import jsonServerProvider from 'ra-data-json-server';
+
+// para php-crud-api
+// const dataProvider = jsonServerProvider(' http://encuentro.test/api/records');
+
+// para laravel Controllers
+
 const dataProvider = jsonapiClient('http://encuentro.test/api');
 
 const RAdmin = () => (
@@ -35,12 +36,8 @@ const RAdmin = () => (
     layout={AdminLayout}
   >
 
-    <Resource name="customers" 
-    list={CustomerList} 
-    icon={CustomerIcon} 
-    edit={CustomerEdit} 
-    create={CustomerCreate} />
-
+    <Resource name="customers" list={CustomerList} icon={CustomerIcon} edit={CustomerEdit} create={CustomerCreate} />
+    
     <Resource name="migrations"
       list={MigrationList} icon={MigrationIcon} edit={MigrationEdit} create={MigrationCreate}/>
     <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
