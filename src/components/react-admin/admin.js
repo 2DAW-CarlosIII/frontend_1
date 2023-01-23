@@ -9,10 +9,12 @@ import { MigrationList, MigrationEdit, MigrationCreate } from 'components/react-
 
 import CustomerIcon from '@mui/icons-material/SupportAgent';
 import UserIcon from '@mui/icons-material/Group';
+
 import PostIcon from '@mui/icons-material/Book';
 import MigrationIcon from '@mui/icons-material/Storage';
 
 import { AdminLayout } from 'components/react-admin/adminLayout';
+
 
 // para laravel Controllers
  import jsonapiClient from 'ra-jsonapi-client';
@@ -24,6 +26,7 @@ import { AdminLayout } from 'components/react-admin/adminLayout';
 // const dataProvider = jsonServerProvider(' http://encuentro.test/api/records');
 
 // para laravel Controllers
+
 const dataProvider = jsonapiClient('http://encuentro.test/api');
 
 const RAdmin = () => (
@@ -32,7 +35,9 @@ const RAdmin = () => (
     dataProvider={dataProvider}
     layout={AdminLayout}
   >
+
     <Resource name="customers" list={CustomerList} icon={CustomerIcon} edit={CustomerEdit} create={CustomerCreate} />
+    
     <Resource name="migrations"
       list={MigrationList} icon={MigrationIcon} edit={MigrationEdit} create={MigrationCreate}/>
     <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
