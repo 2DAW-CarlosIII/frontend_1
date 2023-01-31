@@ -4,6 +4,9 @@ import { UserList } from 'components/react-admin/users';
 import { CustomerList, CustomerEdit, CustomerCreate } from 'components/react-admin/customers';
 import { ProductList, ProductEdit, ProductCreate } from 'components/react-admin/products';
 
+import { ArtworkList} from 'components/react-admin/artworks';
+import ArtworkIcon from '@mui/icons-material/Palette';
+
 //TODO eliminar las dos lineas siguientes
 import { PostList, PostEdit, PostCreate } from 'components/react-admin/posts';
 import { MigrationList, MigrationEdit, MigrationCreate } from 'components/react-admin/migrations';
@@ -43,8 +46,9 @@ const RAdmin = () => (
   >
 
     <Resource name="customers" list={CustomerList} icon={CustomerIcon} edit={CustomerEdit} create={CustomerCreate} />
-    <Resource name="products" list={ProductList} icon={ProductIcon} edit={ProductEdit} create={ProductCreate} />
-    
+
+    <Resource name="artworks" list={ArtworkList} icon={ArtworkIcon} />
+
     <Resource name="migrations"
       list={MigrationList} icon={MigrationIcon} edit={MigrationEdit} create={MigrationCreate}/>
     <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
