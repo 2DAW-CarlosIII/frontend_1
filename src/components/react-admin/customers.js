@@ -18,7 +18,9 @@ import { useMediaQuery } from '@mui/material';
 
 const customerFilters = [
   <TextInput source="q" label="Search" alwaysOn />,
+
   <ReferenceInput source="user_id" label="User" reference="users" />
+
 ];
 
 export const CustomerList = () => {
@@ -35,9 +37,11 @@ return (
         <EditButton />
       </SimpleList>
     ) : (
+
       <Datagrid bulkActionButtons={false}>
         <TextField source="id" />
         <ReferenceField source="user_id" reference="users" />
+
         <TextField source="first_name" />
         <TextField source="last_name" />
         <TextField source="job_title" />
@@ -60,6 +64,7 @@ export const CustomerEdit = () => (
   <SimpleForm>
       <TextInput source="id" disabled />
       <ReferenceInput source="user_id" reference="users" />
+
       <TextInput source="first_name" />
       <TextInput source="last_name" />
       <TextInput source="job_title" />
@@ -72,7 +77,9 @@ export const CustomerEdit = () => (
 export const CustomerCreate = () => (
   <Create>
       <SimpleForm>
+
         <ReferenceInput source="user_id" reference="users" />
+
         <TextInput source="first_name" />
         <TextInput source="last_name" />
         <TextInput source="job_title" />
@@ -81,3 +88,4 @@ export const CustomerCreate = () => (
       </SimpleForm>
   </Create>
   );
+
