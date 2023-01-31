@@ -77,9 +77,7 @@ export const CustomerEdit = () => (
 export const CustomerCreate = () => (
   <Create>
       <SimpleForm>
-
         <ReferenceInput source="user_id" reference="users" />
-
         <TextInput source="first_name" />
         <TextInput source="last_name" />
         <TextInput source="job_title" />
@@ -88,4 +86,3 @@ export const CustomerCreate = () => (
       </SimpleForm>
   </Create>
   );
-
