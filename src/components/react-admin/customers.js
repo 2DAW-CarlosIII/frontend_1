@@ -88,4 +88,3 @@ export const CustomerCreate = () => (
       </SimpleForm>
   </Create>
   );
-
