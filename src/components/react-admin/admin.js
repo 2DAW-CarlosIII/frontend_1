@@ -8,6 +8,9 @@ import { CustomerList, CustomerEdit, CustomerCreate } from 'components/react-adm
 import { ArtworkList} from 'components/react-admin/artworks';
 import ArtworkIcon from '@mui/icons-material/Palette';
 
+import { ArtworkList} from 'components/react-admin/artworks';
+import ArtworkIcon from '@mui/icons-material/Palette';
+
 //TODO eliminar las dos lineas siguientes
 import { PostList, PostEdit, PostCreate } from 'components/react-admin/posts';
 import { MigrationList, MigrationEdit, MigrationCreate } from 'components/react-admin/migrations';
