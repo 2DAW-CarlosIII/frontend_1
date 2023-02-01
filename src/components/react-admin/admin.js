@@ -33,6 +33,10 @@ import { default as Login } from 'pages/login';
 // para php-crud-api
 //import jsonServerProvider from 'ra-data-json-server';
 
+import { default as AuthProvider } from 'components/react-admin/authProvider';
+
+import { default as Login } from 'pages/login'
+
 // para php-crud-api
 // const dataProvider = jsonServerProvider(' http://encuentro.test/api/records');
 
@@ -41,13 +45,14 @@ import { default as Login } from 'pages/login';
 const dataProvider = jsonapiClient('http://encuentro.test/api');
 
 // <Resource name="shoppings" list={ShoppingList} icon={ShoppingIcon} />
-// <Resource name="products" list={ProductList} icon={ProductIcon} edit={ProductEdit} create={ProductCreate} />
+
 
 const RAdmin = () => {
-
   function handleDataProvider(dataProvider) {
     setDataProvider(() => dataProvider)
   }
+
+// <Resource name="products" list={ProductList} icon={ProductIcon} edit={ProductEdit} create={ProductCreate} />
 
   const myLogin = <Login handleDataProvider={handleDataProvider} />
   const API_URL = `${process.env.REACT_APP_BACKEND_URL}/api`
@@ -58,22 +63,23 @@ const RAdmin = () => {
   }
 
   return(
-    <Admin
-      basename="/dashboard"
-      dataProvider={dataProvider}
-      authProvider={AuthProvider}
-      loginPage={myLogin}
-    >
+  <Admin
+    basename="/dashboard"
+    dataProvider={dataProvider}
+    authProvider={AuthProvider}
+    loginPage={myLogin}
+  >
 
-      <Resource name="customers" list={CustomerList} icon={CustomerIcon} edit={CustomerEdit} create={CustomerCreate} />
+    <Resource name="customers" list={CustomerList} icon={CustomerIcon} edit={CustomerEdit} create={CustomerCreate} />
 
-      <Resource name="artworks" list={ArtworkList} icon={ArtworkIcon} />
-    
-      <Resource name="migrations"
-        list={MigrationList} icon={MigrationIcon} edit={MigrationEdit} create={MigrationCreate}/>
-      <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
-      <Resource name="users" list={UserList} icon={UserIcon} recordRepresentation="name" />
-    </Admin>
-  )}
+    <Resource name="artworks" list={ArtworkList} icon={ArtworkIcon} />
+
+    <Resource name="migrations"
+      list={MigrationList} icon={MigrationIcon} edit={MigrationEdit} create={MigrationCreate}/>
+    <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} icon={PostIcon} />
+    <Resource name="users" list={UserList} icon={UserIcon} recordRepresentation="name" />
+  </Admin>
+  )
+}
 
 export default RAdmin;
