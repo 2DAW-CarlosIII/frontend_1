@@ -8,7 +8,6 @@ import {
     TextInput
   } from 'react-admin';
 
-
 import { useRecordContext } from 'react-admin';
 
 import { useMediaQuery } from '@mui/material';

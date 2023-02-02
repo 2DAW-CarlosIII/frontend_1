@@ -8,9 +8,6 @@ import { CustomerList, CustomerEdit, CustomerCreate } from 'components/react-adm
 import { ArtworkList} from 'components/react-admin/artworks';
 import ArtworkIcon from '@mui/icons-material/Palette';
 
-import { ArtworkList} from 'components/react-admin/artworks';
-import ArtworkIcon from '@mui/icons-material/Palette';
-
 //TODO eliminar las dos lineas siguientes
 import { PostList, PostEdit, PostCreate } from 'components/react-admin/posts';
 import { MigrationList, MigrationEdit, MigrationCreate } from 'components/react-admin/migrations';
@@ -31,13 +28,6 @@ import { default as AuthProvider } from 'components/react-admin/authProvider';
 import { default as Login } from 'pages/login';
 
 // para php-crud-api
-//import jsonServerProvider from 'ra-data-json-server';
-
-import { default as AuthProvider } from 'components/react-admin/authProvider';
-
-import { default as Login } from 'pages/login'
-
-// para php-crud-api
 // const dataProvider = jsonServerProvider(' http://encuentro.test/api/records');
 
 // para laravel Controllers
@@ -45,7 +35,6 @@ import { default as Login } from 'pages/login'
 const dataProvider = jsonapiClient('http://encuentro.test/api');
 
 // <Resource name="shoppings" list={ShoppingList} icon={ShoppingIcon} />
-
 
 const RAdmin = () => {
   function handleDataProvider(dataProvider) {
