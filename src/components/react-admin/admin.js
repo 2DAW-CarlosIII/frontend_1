@@ -53,7 +53,6 @@ const RAdmin = () => {
       }
     }
 
-
 // <Resource name="products" list={ProductList} icon={ProductIcon} edit={ProductEdit} create={ProductCreate} />
 
   const myLogin = <Login handleDataProvider={handleDataProvider} />
