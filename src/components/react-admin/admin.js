@@ -41,9 +41,23 @@ const RAdmin = () => {
     setDataProvider(() => dataProvider)
   }
 
+  let token = localStorage.getItem('auth')
+  let settings = null
+  if (token) {
+    token = JSON.parse(localStorage.getItem('auth'))
+      settings = {
+        headers: {
+          Authorization: `${token.token_type} ${token.access_token}`,
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      }
+    }
+
+
 // <Resource name="products" list={ProductList} icon={ProductIcon} edit={ProductEdit} create={ProductCreate} />
 
   const myLogin = <Login handleDataProvider={handleDataProvider} />
+
   const API_URL = `${process.env.REACT_APP_BACKEND_URL}/api`
   const [dataProvider, setDataProvider] = useState(null)
 
