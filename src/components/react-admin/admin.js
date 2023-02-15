@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { UserList } from 'components/react-admin/users';
 import { CustomerList, CustomerEdit, CustomerCreate } from 'components/react-admin/customers';
-//import { ProductList, ProductEdit, ProductCreate } from 'components/react-admin/products';
+import { ProductList, ProductEdit, ProductCreate } from 'components/react-admin/products';
 
 import { ArtworkList} from 'components/react-admin/artworks';
 import ArtworkIcon from '@mui/icons-material/Palette';
@@ -13,7 +13,7 @@ import { PostList, PostEdit, PostCreate } from 'components/react-admin/posts';
 import { MigrationList, MigrationEdit, MigrationCreate } from 'components/react-admin/migrations';
 
 import CustomerIcon from '@mui/icons-material/SupportAgent';
-//import ProductIcon from '@mui/icons-material/SupportAgent';
+import ProductIcon from '@mui/icons-material/Inventory'; 
 import UserIcon from '@mui/icons-material/Group';
 
 import PostIcon from '@mui/icons-material/Book';
@@ -53,8 +53,6 @@ const RAdmin = () => {
       }
     }
 
-// <Resource name="products" list={ProductList} icon={ProductIcon} edit={ProductEdit} create={ProductCreate} />
-
   const myLogin = <Login handleDataProvider={handleDataProvider} />
 
   const API_URL = `${process.env.REACT_APP_BACKEND_URL}/api`
@@ -71,6 +69,8 @@ const RAdmin = () => {
     authProvider={AuthProvider}
     loginPage={myLogin}
   >
+
+    <Resource name="products" list={ProductList} icon={ProductIcon} edit={ProductEdit} create={ProductCreate} />
 
     <Resource name="customers" list={CustomerList} icon={CustomerIcon} edit={CustomerEdit} create={CustomerCreate} />
 
