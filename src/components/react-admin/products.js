@@ -1,6 +1,7 @@
 // in src/components/react-admin/products.js
 import {
     List,
+    SimpleList,
     Datagrid,
     TextField,
     ReferenceField,
@@ -12,46 +13,65 @@ import {
     TextInput
   } from 'react-admin';
 
-import { useRecordContext} from 'react-admin';
+  import { useRecordContext} from 'react-admin';
+  import { useMediaQuery } from '@mui/material';
 
-const postFilters = [
-    <TextInput source="q" label="Search" alwaysOn />,
-    <ReferenceInput source="userId" label="User" reference="users" />
-];
+  const productFilters = [
+    <TextInput source="q" label="Search" alwaysOn />
+  ];
 
-export const PostList = () => (
-    <List filters={postFilters} >
-      <Datagrid>
-        <TextField source="id" />
-        <ReferenceField source="userId" reference="users" />
-        <TextField source="title" />
-        <EditButton />
-      </Datagrid>
-    </List>
-  );
-
-const PostTitle = () => {
-  const record = useRecordContext();
-  return <span>Post {record ? `"${record.title}"` : ''}</span>;
-};
-
-export const PostEdit = () => (
-    <Edit title={<PostTitle />}>
-    <SimpleForm>
-        <TextInput source="id" disabled />
-        <ReferenceInput source="userId" reference="users" />
-        <TextInput source="title" />
-        <TextInput source="body" multiline rows={5} />
-    </SimpleForm>
-    </Edit>
-);
-
-export const PostCreate = () => (
-    <Create>
-        <SimpleForm>
-        <ReferenceInput source="userId" reference="users" />
-        <TextInput source="title" />
-        <TextInput source="body" multiline rows={5} />
-        </SimpleForm>
-    </Create>
+  export const ProductList = () => {
+    const isSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+    return (
+      <List filters={productFilters} >
+        {isSmall ? (
+          <SimpleList
+            primaryText="%{nombre}"
+            secondaryText="%{precio}"
+            tertiaryText="%{imagen} - %{descripcion}"
+            linkType={(record) => (record.canEdit ? 'edit' : 'show')}
+          >
+            <EditButton />
+          </SimpleList>
+        ) : (
+    
+          <Datagrid bulkActionButtons={false}>
+            <TextField source="id" />
+            <TextField source="nombre" />
+            <TextField source="precio" />
+            <TextField source="imagen" />
+            <TextField source="descripcion" />
+            <EditButton />
+          </Datagrid>
+        )}
+      </List>
     );
+    }
+    
+    const ProductTitle = () => {
+    const record = useRecordContext();
+    return <span>Product {record ? `"${record.nombre}"` : ''}</span>;
+    };
+    
+    export const ProductEdit = () => (
+      <Edit title={<ProductTitle />}>
+      <SimpleForm>
+          <TextInput source="id" disabled />
+          <TextInput source="nombre" />
+          <TextInput source="precio" />
+          <TextInput source="imagen" />
+          <TextInput source="descripcion" />
+      </SimpleForm>
+      </Edit>
+    );
+    
+    export const ProductCreate = () => (
+      <Create>
+          <SimpleForm>
+            <TextInput source="nombre" />
+            <TextInput source="precio" />
+            <TextInput source="imagen" />
+            <TextInput source="descripcion" />
+          </SimpleForm>
+      </Create>
+      );
