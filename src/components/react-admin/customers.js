@@ -29,9 +29,8 @@ return (
   <List filters={customerFilters} >
     {isSmall ? (
       <SimpleList
-        primaryText="%{first_name} %{last_name}"
-        secondaryText={(record) => record.job_title}
-        tertiaryText="%{city} - %{country}"
+        primaryText="%{Nombre} %{Apellido} %{tlf}"
+        secondaryText="%{ciudad} - %{pais}"
         linkType={(record) => (record.canEdit ? 'edit' : 'show')}
       >
         <EditButton />
@@ -42,11 +41,11 @@ return (
         <TextField source="id" />
         <ReferenceField source="user_id" reference="users" />
 
-        <TextField source="first_name" />
-        <TextField source="last_name" />
-        <TextField source="job_title" />
-        <TextField source="city" />
-        <TextField source="country" />
+        <TextField source="Nombre" />
+        <TextField source="Apellido" />
+        <TextField source="tlf" />
+        <TextField source="ciudad" />
+        <TextField source="pais" />
         <EditButton />
       </Datagrid>
     )}
@@ -56,7 +55,7 @@ return (
 
 const CustomerTitle = () => {
 const record = useRecordContext();
-return <span>Customer {record ? `"${record.first_name} ${record.last_name}"` : ''}</span>;
+return <span>Customer {record ? `"${record.Nombre} ${record.Apellido}"` : ''}</span>;
 };
 
 export const CustomerEdit = () => (
@@ -65,11 +64,11 @@ export const CustomerEdit = () => (
       <TextInput source="id" disabled />
       <ReferenceInput source="user_id" reference="users" />
 
-      <TextInput source="first_name" />
-      <TextInput source="last_name" />
-      <TextInput source="job_title" />
-      <TextInput source="city" />
-      <TextInput source="country" />
+      <TextInput source="Nombre" />
+      <TextInput source="Apellido" />
+      <TextInput source="tlf" />
+      <TextInput source="ciudad" />
+      <TextInput source="pais" />
   </SimpleForm>
   </Edit>
 );
@@ -78,11 +77,11 @@ export const CustomerCreate = () => (
   <Create>
       <SimpleForm>
         <ReferenceInput source="user_id" reference="users" />
-        <TextInput source="first_name" />
-        <TextInput source="last_name" />
-        <TextInput source="job_title" />
-        <TextInput source="city" />
-        <TextInput source="country" />
+        <TextInput source="Nombre" />
+        <TextInput source="Apellido" />
+        <TextInput source="tlf" />
+        <TextInput source="ciudad" />
+        <TextInput source="pais" />
       </SimpleForm>
   </Create>
   );
