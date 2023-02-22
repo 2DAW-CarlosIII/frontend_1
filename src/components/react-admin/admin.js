@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { UserList } from 'components/react-admin/users';
 import { CustomerList, CustomerEdit, CustomerCreate } from 'components/react-admin/customers';
 import { ProductList, ProductEdit, ProductCreate } from 'components/react-admin/products';
+import { CategoryList, CategoryEdit, CategoryCreate } from 'components/react-admin/categories';
 
 import { ArtworkList} from 'components/react-admin/artworks';
 import ArtworkIcon from '@mui/icons-material/Palette';
@@ -13,7 +14,8 @@ import { PostList, PostEdit, PostCreate } from 'components/react-admin/posts';
 import { MigrationList, MigrationEdit, MigrationCreate } from 'components/react-admin/migrations';
 
 import CustomerIcon from '@mui/icons-material/SupportAgent';
-import ProductIcon from '@mui/icons-material/Inventory'; 
+import ProductIcon from '@mui/icons-material/Inventory';
+import CategoryIcon from '@mui/icons-material/Category';
 import UserIcon from '@mui/icons-material/Group';
 
 import PostIcon from '@mui/icons-material/Book';
@@ -71,6 +73,8 @@ const RAdmin = () => {
   >
 
     <Resource name="products" list={ProductList} icon={ProductIcon} edit={ProductEdit} create={ProductCreate} />
+
+    <Resource name="categories" list={CategoryList} icon={CategoryIcon} edit={CategoryEdit} create={CategoryCreate} />
 
     <Resource name="customers" list={CustomerList} icon={CustomerIcon} edit={CustomerEdit} create={CustomerCreate} />
 

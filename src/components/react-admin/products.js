@@ -17,7 +17,9 @@ import {
   import { useMediaQuery } from '@mui/material';
 
   const productFilters = [
-    <TextInput source="q" label="Search" alwaysOn />
+    <TextInput source="q" label="Search" alwaysOn />,
+
+    <ReferenceInput source="categoria" label="Category" reference="categories" />
   ];
 
   export const ProductList = () => {
@@ -37,6 +39,7 @@ import {
     
           <Datagrid bulkActionButtons={false}>
             <TextField source="id" />
+            <ReferenceField source="categoria" reference="categories" />
             <TextField source="nombre" />
             <TextField source="precio" />
             <TextField source="imagen" />
