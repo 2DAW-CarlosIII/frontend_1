@@ -1,0 +1,339 @@
+@import './bootstrap-5.3.0-alpha1/scss/bootstrap';
+@import './bootstrap-5.3.0-alpha1/scss/variables';
+
+@import 'variablessass';
+@import 'framework';
+
+@import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap');
+
+@mixin tituloRhodium ($tamanyoletra, $pesoletra){
+    font-family: 'Rhodium Libre', serif;
+    font-size: $tamanyoletra;
+    font-weight: $pesoletra;
+}
+
+@mixin textofuenteK2D($tamanyoletra, $pesoletra) {
+    font-family: 'K2D', sans-serif;
+    font-size: $tamanyoletra;
+    font-weight: $pesoletra;
+}
+
+body{
+    max-width: $tbase;
+    margin: 0 auto;
+
+    h3{
+        @include tituloRhodium(40px, 400);
+    }
+}
+
+header{
+    .logo-busqueda {
+        background: linear-gradient(to right, #FFFFFF 80%, #E3A04F 20%);
+        float: left;
+        margin-right: 20px;
+        width: 100%;
+            .logo {
+                width: 20%;
+            }
+    
+            form {
+                display: inline-block;
+                border-radius: 20px;
+                padding: 10px;
+                margin-left: 20%;
+    
+            input[type="text"] {
+                border: none;
+                background-color: gainsboro;
+                outline: none;
+                padding: 10px;
+                width: 200px;
+            }
+        }
+        .login{
+            margin-left: 20%;
+        }
+    
+    }
+}
+
+nav {
+    background-color: $fondoVioleta;
+    text-align: center;
+
+    ul {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+
+        li {
+            text-align: center;
+
+            a {
+                @include tituloRhodium(30px, 400);
+                color: white;
+                text-decoration: none;
+                text-transform: uppercase;
+                cursor: pointer;
+                background-color: transparent;
+                padding: 10px;
+    
+                &:hover {
+                    background-color: white;
+                    color: $fondoVioleta;
+                    transition: background-color 0.3s ease;
+                }
+            }
+        }
+
+    }
+}
+.registro{
+    background-image: url("../img/errores-al-vapear-1384x752.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    width: 100%;
+    height: 450px;
+    p{
+        @include textofuenteK2D(35px, 400);
+        color:white;
+        margin-left: 68%;
+    }
+    button {
+        @include textofuenteK2D(25px, 400);
+        background-color: $fondoVioleta;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin-top: 2%;
+        margin-left: 67%;
+        cursor: pointer;
+      }
+}
+.novedades {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #FFFFFF;
+    .imagen-novedades {
+        margin-right: 20px;
+      }
+      
+      img {
+      width: 300px;
+      }
+      
+      .texto-novedades {
+        flex-grow: 1;
+      }
+      
+      h3 {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    p {
+        font-size: 1.2rem;
+      }
+  } 
+  .limitada {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #FFFFFF;
+    .imagen-limitada {
+        margin-right: 20px;
+      }
+      
+      img {
+      width: 300px;
+      }
+      
+      .texto-limitada {
+        flex-grow: 1;
+      }
+      
+      h3 {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    p {
+        font-size: 1.2rem;
+      }
+  }
+
+.ofertas{
+    background-color: $fondoVioletaClaro;
+
+    h3{
+        margin-left: 5%;
+    }
+
+    .carousel{
+        .carousel-inner{
+            .carousel-item{
+                div{
+                    width: calc(98%/3);
+                    text-align: center;
+                    float:left;
+                    img{
+                        width:30%;
+                        text-align: center;
+                    }
+                    .precioGrande{
+                        font-size: 25px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.proximamente{
+    margin-top: 1%;
+    display: inline-block;
+
+    h3{
+        text-align: center;
+    }
+
+    article{
+        width: calc(98%/5);
+        text-align: center;
+        float:left;
+        margin-top: 1.5%;
+
+        img{
+            width: 30%;
+        }
+
+        p{
+            text-align: center;
+            @include textofuenteK2D(20px, 400);
+        }
+
+        button{
+            background-color: $fondoVioleta;
+            color: white;
+            @include textofuenteK2D(30px, 400);
+            border: 0px;
+        }
+    }
+}
+
+footer{
+    margin-top: 3%;
+    text-align: center;
+    background-color: $fondoNaranja;
+
+    img{
+        width: 10em;
+    }
+
+    .redes{
+        a{
+            text-decoration: none;
+            margin-right: 1%;
+            img{
+                width:5em;
+            }
+        }
+    }
+
+    .menuPie{
+        ul{
+            li{
+                margin-right: 2%;
+                display: inline-block;
+
+                a{
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+    }
+
+    .telefonoMovilCorreo{
+        ul{
+            li{
+                margin: 2%;
+                display: inline-block;
+
+                p{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    p{
+        margin-top: -2%;
+    }
+}
+
+@media screen and (max-width: map-get($mapatamanyo, "md")){
+    
+    .proximamente{
+        
+        article{
+            width: 30%;
+        }
+
+    }
+}
+
+@media screen and (max-width: map-get($mapatamanyo, "sm")){
+    
+    nav{
+        ul{
+            li{
+                display: block;
+                margin: auto;
+                text-align: center;
+            }
+        }
+        
+    }
+
+    .registro{
+        p{
+            margin-left: 25%;
+        }
+        button{
+            margin-left: 25%;
+        }
+    }
+
+    .ofertas{
+        h3{
+            text-align: center;
+        }
+
+        .carousel{
+            .carousel-inner{
+                .carousel-item{
+                    div{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    .proximamente{
+        
+        article{
+            width: 50%;
+            margin-top: 0%;
+        }
+
+    }
+}

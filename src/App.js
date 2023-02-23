@@ -8,6 +8,7 @@ import Home from 'pages/home';
 import ForgotPassword from 'pages/forgot-password';
 import PasswordReset from 'pages/password-reset';
 import NotFoundPage from 'pages/404';
+import './style/style.css'
 
 function App() {
   return (
