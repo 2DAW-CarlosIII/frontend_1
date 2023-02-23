@@ -1,0 +1,25 @@
+.wrapper{
+    width: 100%;
+    max-width: $tbase;
+    margin: 0 auto;
+}
+
+.row{
+    clear: both;
+}
+
+@for $i from 1 through 12{
+    .col-#{$i}{
+        width: $pcolumna*$i;
+    }
+}
+
+@each $nombret, $pxt in $mapatamanyo {
+    @media screen and (min-width: $pxt){
+        @for $i from 1 through 12{
+            .col-#{$nombret}-#{$i}{
+                width:$pcolumna*$i;
+            }
+        }  
+    }
+}
